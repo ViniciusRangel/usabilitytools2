@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+
+.uniquename {
+	top: 10px;
+	left: 800px;
+	margin-left: -250px;
+	position: absolute;
+	width: 500px;
+	line-height: 250px;
+}
+.one {
+	top: 106px;
+}
+
+.two {
+	top: 72px;
+}
+
+.three {
+	top: 134px;
+}
+
+.four {
+	top: 195px;
+}
+
+.color {
+	background-color: darkslategrey;
+}
+
+.mesmo-tamanho {
+	width: 30%;
+	white-space: normal;
+}
+
+.one2 {
+	top: 230px;
+}
+.one3 {
+	top: 165px;
+}

@@ -1,0 +1,87 @@
+create table avaliador (
+	id BIGINT NOT NULL AUTO_INCREMENT,
+	nome VARCHAR(255),
+	email VARCHAR(255),
+	login VARCHAR(255),
+	senha VARCHAR(255),
+	senha2 VARCHAR(255),
+	primary key (id)
+);
+
+
+create table software (
+	id BIGINT NOT NULL AUTO_INCREMENT,
+	idavaliador BIGINT(100),
+	nome VARCHAR(255),
+	link VARCHAR(255),
+	descricao VARCHAR (550),
+	inicioativacao VARCHAR(255),
+	fimativacao VARCHAR(255),
+	faixaetariainicial VARCHAR(255),
+	faixaetariafinal VARCHAR(255),
+	genero VARCHAR(255),
+	escolaridade VARCHAR(255),
+	observacao VARCHAR(550),
+	primary key (id),
+	CONSTRAINT fk_id_avaliador FOREIGN KEY (idavaliador) REFERENCES avaliador (id) ON DELETE CASCADE
+);
+
+ create table grupo(
+	id BIGINT NOT NULL AUTO_INCREMENT,
+	idavaliador BIGINT(101),
+	idsoftware BIGINT(101),
+	nomesoftware VARCHAR(255),
+	nomegrupo VARCHAR(255),
+	qtdparticipantes VARCHAR (255),
+	descricao VARCHAR(355),
+	primary key (id),
+	FOREIGN KEY (idavaliador) REFERENCES avaliador (id) ON DELETE CASCADE,
+	FOREIGN KEY (idsoftware) REFERENCES software (id) ON DELETE CASCADE	
+);
+
+create table avaliacao (
+	id BIGINT NOT NULL AUTO_INCREMENT,
+	idavaliador BIGINT(100),
+	idsoftware BIGINT(100),
+	nomesoftware VARCHAR(255),
+	idgrupo BIGINT(100),
+	nomegrupo VARCHAR(255),
+	escala VARCHAR (255),
+	codigoavaliacao INT(255),
+	primary key (id),
+	FOREIGN KEY (idavaliador) REFERENCES avaliador (id) ON DELETE CASCADE,
+	FOREIGN KEY (idsoftware) REFERENCES software (id) ON DELETE CASCADE,	
+	FOREIGN KEY (idgrupo) REFERENCES grupo (id) ON DELETE CASCADE
+);
+
+create table participante (
+	id BIGINT NOT NULL AUTO_INCREMENT,
+	idavaliador BIGINT (101),
+	nomeparticipante VARCHAR (255),
+	datanascimento VARCHAR (255),
+	genero VARCHAR (255),
+	email VARCHAR (255),
+	escala VARCHAR (255),
+	codigoavaliacao INT(100),
+	nomesoftware VARCHAR (255),
+	nomegrupo VARCHAR (255),
+	item1 INT(100),
+	item2 INT(100),
+	item3 INT(100),
+	item4 INT(100),
+	item5 INT(100),
+	item6 INT(100),
+	item7 INT(100),
+	item8 INT(100),
+	item9 INT(100),
+	item10 INT(100),
+	primary key (id),
+	FOREIGN KEY (idavaliador) REFERENCES avaliador (id) ON DELETE CASCADE
+);
+
+
+
+
+
+
+
