@@ -53,7 +53,6 @@ public class LoginServlet extends HttpServlet{
 				session.setAttribute("idAvaliadorAutenticado", avaliador.getId());
 				session.removeAttribute("menssagem");
 				
-				
 				break;
 
 			}else {
